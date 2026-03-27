@@ -7,6 +7,7 @@ Whether you're looking for the perfect snow to **Ski** 🎿, the best waves to *
 ## 🚀 Built With
 
 ### Frontend (User Interface)
+
 - **Framework:** [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
 - **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
@@ -15,6 +16,7 @@ Whether you're looking for the perfect snow to **Ski** 🎿, the best waves to *
 - **Testing:** [Vitest](https://vitest.dev/) + [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
 ### Backend (API)
+
 - **Framework:** [NestJS](https://nestjs.com/)
 - **API Protocol:** [GraphQL](https://graphql.org/) + [Apollo Server](https://www.apollographql.com/)
 - **HTTP Client:** [Axios](https://axios-http.com/) (to consume [Open-Meteo API](https://open-meteo.com/))
@@ -61,6 +63,7 @@ docker compose up --build
 ### Local Development (Manual)
 
 #### 1. Start the Backend
+
 ```bash
 cd backend
 npm install
@@ -68,6 +71,7 @@ npm run start:dev
 ```
 
 #### 2. Start the Frontend
+
 ```bash
 cd frontend
 npm install
@@ -81,12 +85,14 @@ npm run dev
 ### Running Unit Tests
 
 #### Backend
+
 ```bash
 cd backend
 npm test
 ```
 
 #### Frontend
+
 ```bash
 cd frontend
 npm test
@@ -95,6 +101,7 @@ npm test
 ### Activity Scoring Logic
 
 We use a custom algorithm in `frontend/src/lib/weather.ts` that analyzes:
+
 - **Temperature:** Average, Min, Max
 - **Precipitation:** Total rain and snow
 - **Wind Speed:** Daily averages
@@ -104,5 +111,23 @@ Activities are then ranked from **🥈 Excellent** to **❌ Poor** to provide th
 
 ---
 
+## 🏛️ Architecture Overview & Technical Choices
+
+This project is built as a **Monorepo** to keep the frontend and backend closely related while allowing independent development.
+
+- **Backend (NestJS + GraphQL):** I chose NestJS for its robust modular architecture and decorators that make API development very organized. Using **GraphQL** allowed the frontend to request specifically what it needs (like city names and elevations) without over-fetching. **Apollo Server** was integrated to handle the GraphQL layer seamlessly.
+- **Frontend (React 19 + Vite):** The latest version of React provides state-of-the-art performance and features. Vite was selected as the build tool for its extremely fast hot module replacement (HMR), especially useful in development.
+- **Styling (Tailwind CSS v4):** Leveraging the newest version of Tailwind for high-performance styling and simplified configuration directly in CSS.
+- **Data Source (Open-Meteo):** A free and reliable weather API was integrated via Axios on the backend.
+
+---
+
+## 🤖 AI Assistance
+
+AI was used strategically during the development of this project. Specifically, **AI assisted in the design and layout of the frontend**, helping to create the modern "starfield" background, glassmorphism effects on cards, and ensuring a responsive and visually appealing user interface with Tailwind CSS.
+
+---
+
 ## 📄 License
+
 This project is licensed under the UNLICENSED (Private) license.
