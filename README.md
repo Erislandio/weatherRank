@@ -126,6 +126,21 @@ This project is built as a **Monorepo** to keep the frontend and backend closely
 
 AI was used strategically during the development of this project. Specifically, **AI assisted in the design and layout of the frontend**, helping to create the modern "starfield" background, glassmorphism effects on cards, and ensuring a responsive and visually appealing user interface with Tailwind CSS.
 
+## 🚧 Current Limitations & Roadmap
+
+WeatherRank is currently in its initial version. To get it up and running quickly, some simplifications were made:
+
+### ⚡ Current Shortcuts
+- **Coastal Guessing:** We currently assume a city is near the coast if its elevation is low. This is a quick way to rank surfing, but might occasionally suggest surfing for low-altitude inland cities.
+- **Simple Ranking:** Our activity scores (Excellent/Poor) are based on basic thresholds (e.g., "Is there snow?" for skiing).
+- **No Persistence:** Your search results will disappear if you refresh the page (we don't save them in your browser yet).
+
+### 🗺️ Future Improvements
+- **Smart Scoring:** Adding **wind chill**, **UV index**, and **humidity** to give even more accurate advice for your trip.
+- **Faster Performance:** Adding a backend cache so that searching for the same city multiple times is near-instant.
+- **Units Toggle:** Support for Imperial units (°F, mph) alongside Metric.
+- **History:** Saving your recently searched cities so you can quickly jump back to them.
+
 ---
 
 ## 📄 License
