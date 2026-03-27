@@ -1,0 +1,40 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type City {
+  id: Int!
+  name: String!
+  state: String!
+  country: String!
+  countryCode: String!
+  latitude: Float!
+  longitude: Float!
+}
+
+type WeatherUnit {
+  time: String!
+  temperature: String!
+  relativeHumidity: String!
+  rain: String!
+  windSpeed: String!
+  snowfall: String!
+  snowDepth: String!
+}
+
+type Weather {
+  latitude: Float!
+  longitude: Float!
+  generationtime: Float!
+  utcOffsetSeconds: Float!
+  timezone: String!
+  timezoneAbbreviation: String!
+  elevation: Float!
+  hourlyUnits: WeatherUnit!
+  weather: [WeatherUnit!]!
+}
+
+type Query {
+  cities(city: String!): [City!]!
+  weather(latitude: Float!, longitude: Float!): Weather!
+}

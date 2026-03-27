@@ -9,4 +9,12 @@ export class WeatherController {
   async search(@Query('city') city: string) {
     return this.weatherService.search(city);
   }
+
+  @Get('get')
+  async getWeather(
+    @Query('latitude') latitude: number,
+    @Query('longitude') longitude: number,
+  ) {
+    return this.weatherService.getWeather(latitude, longitude);
+  }
 }
