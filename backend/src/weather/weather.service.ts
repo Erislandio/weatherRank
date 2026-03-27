@@ -58,7 +58,7 @@ export class WeatherService {
     return data.results.map((result) => ({
       id: result.id,
       name: result.name,
-      state: result.admin1,
+      state: result?.admin1 ?? '',
       country: result.country,
       countryCode: result.country_code,
       latitude: result.latitude,
