@@ -22,4 +22,7 @@ export class City {
 
   @Field()
   longitude: number;
+
+  @Field()
+  elevation: number;
 }

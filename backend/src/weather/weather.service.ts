@@ -17,6 +17,10 @@ export class WeatherService {
       ),
     );
 
+    if (!data.hourly) {
+      throw new Error('Weather data not found');
+    }
+
     return {
       latitude: data.latitude,
       longitude: data.longitude,
@@ -55,6 +59,10 @@ export class WeatherService {
       ),
     );
 
+    if (!data.results) {
+      throw new Error('City not found');
+    }
+
     return data.results.map((result) => ({
       id: result.id,
       name: result.name,
@@ -63,6 +71,7 @@ export class WeatherService {
       countryCode: result.country_code,
       latitude: result.latitude,
       longitude: result.longitude,
+      elevation: result.elevation,
     }));
   }
 }
