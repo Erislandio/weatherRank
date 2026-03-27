@@ -30,7 +30,7 @@ export default function App() {
     try {
       const weather = await getWeather(city.latitude, city.longitude);
       const grouped = groupByDay(weather.weather);
-      const ranked = rankActivities(grouped);
+      const ranked = rankActivities(grouped, city);
       setDays(grouped);
       setActivities(ranked);
     } catch (err) {

@@ -20,7 +20,7 @@ export async function searchCities(city: string): Promise<City[]> {
   const data = await gql<{ cities: City[] }>(
     `query SearchCities($city: String!) {
       cities(city: $city) {
-        id name state country countryCode latitude longitude
+        id name state country countryCode latitude longitude elevation
       }
     }`,
     { city },

@@ -6,6 +6,7 @@ export interface City {
   countryCode: string;
   latitude: number;
   longitude: number;
+  elevation: number;
 }
 
 export interface WeatherUnit {
