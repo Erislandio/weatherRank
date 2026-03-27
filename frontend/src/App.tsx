@@ -46,10 +46,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#070b14] text-white relative overflow-x-hidden">
-      <div className="fixed inset-0 pointer-events-none select-none">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(14,165,233,0.12),transparent)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_80%_80%,rgba(99,102,241,0.08),transparent)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_30%_at_10%_70%,rgba(20,184,166,0.06),transparent)]" />
+      <div className="fixed pointer-events-none select-none">
         {STARS.map((s, i) => (
           <div
             key={i}
@@ -75,10 +72,6 @@ export default function App() {
               WeatherRank
             </h1>
           </div>
-          <p className="text-white/40 text-sm max-w-sm mx-auto text-center w-full m-auto">
-            Discover the best activities for your destination based on the 7-day
-            forecast
-          </p>
         </header>
 
         <div className="mb-10">

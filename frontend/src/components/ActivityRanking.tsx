@@ -1,6 +1,6 @@
-import type { ActivityScore } from '@/types/weather';
+import type { ActivityScore } from "@/types/weather";
 
-const MEDALS = ['🥇', '🥈', '🥉', '4️⃣'];
+const MEDALS = ["🥇", "🥈", "🥉", "4️⃣"];
 
 interface ActivityRankingProps {
   activities: ActivityScore[];
@@ -25,52 +25,59 @@ export function ActivityRanking({ activities }: ActivityRankingProps) {
 function ActivityCard({ activity }: { activity: ActivityScore }) {
   const scoreColor =
     activity.score >= 75
-      ? 'text-emerald-400'
+      ? "text-emerald-400"
       : activity.score >= 50
-        ? 'text-amber-400'
+        ? "text-amber-400"
         : activity.score >= 25
-          ? 'text-orange-400'
-          : 'text-red-400';
+          ? "text-orange-400"
+          : "text-red-400";
 
   const scoreLabel =
     activity.score >= 75
-      ? 'Excellent'
+      ? "Excellent"
       : activity.score >= 55
-        ? 'Good'
+        ? "Good"
         : activity.score >= 35
-          ? 'Fair'
-          : 'Poor';
+          ? "Fair"
+          : "Poor";
 
   return (
-    <div className={`
+    <div
+      className={`
       relative overflow-hidden rounded-2xl border border-white/10
       bg-gradient-to-br ${activity.bgGradient} backdrop-blur-sm
       p-5 flex flex-col gap-4
       transition-all duration-300 hover:border-white/20 hover:scale-[1.02]
-    `}>
-      {/* Subtle gradient overlay */}
-      <div className={`
+    `}
+    >
+      <div
+        className={`
         absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-10
         bg-gradient-to-br ${activity.gradient}
         pointer-events-none
-      `} />
+      `}
+      />
 
-      {/* Header */}
       <div className="relative flex items-center justify-between">
         <div className="flex items-center gap-3">
           <span className="text-3xl">{MEDALS[activity.rank - 1]}</span>
           <div>
-            <p className="text-white font-semibold leading-tight">{activity.name}</p>
-            <p className="text-white/45 text-xs mt-0.5">{activity.description}</p>
+            <p className="text-white font-semibold leading-tight">
+              {activity.name}
+            </p>
+            <p className="text-white/45 text-xs mt-0.5">
+              {activity.description}
+            </p>
           </div>
         </div>
         <span className="text-3xl">{activity.emoji}</span>
       </div>
 
-      {/* Score bar */}
       <div className="relative space-y-1.5">
         <div className="flex items-center justify-between">
-          <span className={`text-xs font-medium ${scoreColor}`}>{scoreLabel}</span>
+          <span className={`text-xs font-medium ${scoreColor}`}>
+            {scoreLabel}
+          </span>
           <span className={`text-lg font-bold tabular-nums ${scoreColor}`}>
             {activity.score}
             <span className="text-sm font-normal opacity-60">/100</span>

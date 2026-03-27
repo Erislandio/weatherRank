@@ -1,5 +1,5 @@
-import { Droplets, Wind, Snowflake } from 'lucide-react';
-import type { DayForecast } from '@/types/weather';
+import type { DayForecast } from "@/types/weather";
+import { Droplets, Snowflake, Wind } from "lucide-react";
 
 interface WeatherForecastProps {
   days: DayForecast[];
@@ -11,11 +11,13 @@ export function WeatherForecast({ days }: WeatherForecastProps) {
   return (
     <div className="w-full space-y-6">
       {/* Today highlight */}
-      <div className="
+      <div
+        className="
         relative overflow-hidden rounded-3xl border border-white/10
         bg-gradient-to-br from-sky-950/70 to-slate-900/70 backdrop-blur-sm p-6
-      ">
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-500/5 to-transparent pointer-events-none" />
+      "
+      >
+        <div className="absolute bg-gradient-to-br from-sky-500/5 to-transparent pointer-events-none" />
         <div className="relative flex flex-col sm:flex-row sm:items-center gap-6">
           <div className="flex items-center gap-5">
             <span className="text-7xl leading-none">{today.weatherIcon}</span>
@@ -71,17 +73,22 @@ export function WeatherForecast({ days }: WeatherForecastProps) {
 
 function DayCard({ day }: { day: DayForecast }) {
   return (
-    <div className={`
+    <div
+      className={`
       rounded-2xl border p-3 text-center flex flex-col items-center gap-2
       transition-all duration-200 hover:scale-105 hover:border-white/20
-      ${day.isToday
-        ? 'bg-sky-500/15 border-sky-400/30'
-        : 'bg-white/4 border-white/8 hover:bg-white/8'
+      ${
+        day.isToday
+          ? "bg-sky-500/15 border-sky-400/30"
+          : "bg-white/4 border-white/8 hover:bg-white/8"
       }
-    `}>
-      <p className={`text-xs font-semibold uppercase tracking-wider ${
-        day.isToday ? 'text-sky-300' : 'text-white/50'
-      }`}>
+    `}
+    >
+      <p
+        className={`text-xs font-semibold uppercase tracking-wider ${
+          day.isToday ? "text-sky-300" : "text-white/50"
+        }`}
+      >
         {day.dayLabel}
       </p>
       <p className="text-white/30 text-xs">{day.dateLabel}</p>

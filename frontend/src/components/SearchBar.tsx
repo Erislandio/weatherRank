@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
-import { Search, MapPin, Loader2, X } from 'lucide-react';
-import { Input } from '@/components/ui/input';
-import { searchCities } from '@/lib/graphql';
-import type { City } from '@/types/weather';
+import { Input } from "@/components/ui/input";
+import { searchCities } from "@/lib/graphql";
+import type { City } from "@/types/weather";
+import { Loader2, MapPin, Search, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 interface SearchBarProps {
   onSelect: (city: City) => void;
@@ -10,7 +10,7 @@ interface SearchBarProps {
 }
 
 export function SearchBar({ onSelect, selectedCity }: SearchBarProps) {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [results, setResults] = useState<City[]>([]);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
@@ -40,22 +40,25 @@ export function SearchBar({ onSelect, selectedCity }: SearchBarProps) {
 
   useEffect(() => {
     function onOutside(e: MouseEvent) {
-      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(e.target as Node)
+      ) {
         setOpen(false);
       }
     }
-    document.addEventListener('mousedown', onOutside);
-    return () => document.removeEventListener('mousedown', onOutside);
+    document.addEventListener("mousedown", onOutside);
+    return () => document.removeEventListener("mousedown", onOutside);
   }, []);
 
   function handleSelect(city: City) {
-    setQuery('');
+    setQuery("");
     setOpen(false);
     onSelect(city);
   }
 
   function clearSelection() {
-    setQuery('');
+    setQuery("");
     setResults([]);
     setOpen(false);
     onSelect(null!);
@@ -63,7 +66,6 @@ export function SearchBar({ onSelect, selectedCity }: SearchBarProps) {
 
   return (
     <div ref={containerRef} className="relative w-full max-w-2xl mx-auto">
-      {/* Input */}
       <div className="relative">
         <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40 w-5 h-5 pointer-events-none" />
         {loading && (
@@ -82,7 +84,7 @@ export function SearchBar({ onSelect, selectedCity }: SearchBarProps) {
           placeholder={
             selectedCity
               ? `${selectedCity.name}, ${selectedCity.country}`
-              : 'Search for a city...'
+              : "Search for a city..."
           }
           value={query}
           onChange={(e) => setQuery(e.target.value)}
@@ -97,7 +99,6 @@ export function SearchBar({ onSelect, selectedCity }: SearchBarProps) {
         />
       </div>
 
-      {/* Dropdown */}
       {open && results.length > 0 && (
         <div
           className="
@@ -120,7 +121,7 @@ export function SearchBar({ onSelect, selectedCity }: SearchBarProps) {
               <div>
                 <span className="text-white font-medium">{city.name}</span>
                 <span className="text-white/50 text-sm ml-2">
-                  {[city.state, city.country].filter(Boolean).join(', ')}
+                  {[city.state, city.country].filter(Boolean).join(", ")}
                 </span>
               </div>
               <span className="ml-auto text-white/30 text-xs font-mono">
